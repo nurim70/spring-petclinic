@@ -53,8 +53,7 @@ pipeline {
         stage('Docker Deploy') {
             steps {
                 sshPublisher(publishers: [sshPublisherDesc(configName: 'target', 
-                transfers: [sshTransfer(cleanRemote: false, excludes: '', 
-                excludes: '',
+                transfers: [sshTransfer(cleanRemote: false, excludes: '',
                 execCommand: '''
                 docker rm -f $(docker ps -aq)
                 docker rmi $(docker images -q)
